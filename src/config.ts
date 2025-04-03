@@ -1,8 +1,8 @@
-import { create } from 'ipfs-http-client'
-import dotenv from 'dotenv'
+import { create } from "ipfs-http-client";
+import dotenv from "dotenv";
 
 // Load environment variables
-dotenv.config()
+dotenv.config();
 
 // Guide for setting up Pinata IPFS integration
 //
@@ -23,16 +23,16 @@ dotenv.config()
 // Configure the IPFS client with Pinata credentials
 const auth = `Basic ${Buffer.from(
   `${process.env.PINATA_API_KEY}:${process.env.PINATA_API_SECRET}`
-).toString('base64')}`
+).toString("base64")}`;
 
 // Create and configure the IPFS client
 const ipfs = create({
-  host: 'api.pinata.cloud',
+  host: "api.pinata.cloud",
   port: 443,
-  protocol: 'https',
+  protocol: "https",
   headers: {
     authorization: auth,
   },
-})
+});
 
-export default ipfs
+export default ipfs;
